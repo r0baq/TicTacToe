@@ -9,7 +9,7 @@ object Application {
       Board.printPlayer()
       val read = StdIn.readLine()
       if ("abort".equals(read)) return
-      println(read)
+      Board.add(read)
       Board.printBoard()
     }
   }

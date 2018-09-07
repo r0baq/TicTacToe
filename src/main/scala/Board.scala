@@ -2,6 +2,7 @@ object Board {
 
   private val data = Array.ofDim[Player.Value](3, 3)
   private var currentPlayer = Player.O
+  private var description = "Gracz '" + currentPlayer + "' wybiera pole: "
 
   def printBoard() = {
     printRow(data(0))

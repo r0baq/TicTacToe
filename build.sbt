@@ -1,9 +1,5 @@
-enablePlugins(ScalaJSPlugin)
-
 name := "TicTacToe"
 version := "0.1"
-scalaVersion := "2.12.6"
+scalaVersion := "2.12.1"
 
-scalaJSUseMainModuleInitializer := true
-
-libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.6"
+libraryDependencies += "org.scala-lang.modules" %% "scala-swing" % "2.0.0-M2"

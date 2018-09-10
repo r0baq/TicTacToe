@@ -2,7 +2,7 @@ object Board {
 
   private val data = Array.ofDim[Player.Value](3, 3)
   private var currentPlayer = Player.O
-  private var description = "Gracz '" + currentPlayer + "' wybiera pole: "
+  private var description = "Gracz '" + currentPlayer + "' wybiera pole"
 
   def printBoard() = {
     printRow(data(0))
@@ -14,7 +14,11 @@ object Board {
 
   def isWon(): Boolean = isWon(Player.O) || isWon(Player.X)
 
-  def printPlayer() = println("Gracz '" + currentPlayer + "' wybiera pole: ")
+  def getDescription() = description
+  def getData(x: Int, y: Int) = {
+    val result = data(x)(y);
+    if (result != null) result.toString else ""
+  }
 
   def add(read: String) = {
     val numbers = read.split(" ")

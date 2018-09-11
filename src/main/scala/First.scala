@@ -4,7 +4,7 @@ import scala.swing.event.ButtonClicked
 object First extends SimpleSwingApplication {
   def top = new MainFrame {
     title = "Kółko i krzyżyk"
-    preferredSize = new Dimension(400, 240)
+    preferredSize = new Dimension(500, 240)
 
     val button1 = new Button()
     val button2 = new Button()
@@ -16,7 +16,7 @@ object First extends SimpleSwingApplication {
     val button8 = new Button()
     val button9 = new Button()
 
-    val label = new Label{ text = "The button hasn't been clicked yet" }
+    val label = new Label{ text = Board.getDescription() }
 
     contents = new GridPanel(4, 3) {
       contents += button1
@@ -45,15 +45,42 @@ object First extends SimpleSwingApplication {
     reactions += {
       case ButtonClicked(b) => {
         if (b == button1) {
-          println("1")
           Board.add("0 0")
           button1.text = Board.getData(0, 0)
         }
         if (b == button2) {
-          println("2")
           Board.add("0 1")
           button2.text = Board.getData(0, 1)
         }
+        if (b == button3) {
+          Board.add("0 2")
+          button3.text = Board.getData(0, 2)
+        }
+        if (b == button4) {
+          Board.add("1 0")
+          button4.text = Board.getData(1, 0)
+        }
+        if (b == button5) {
+          Board.add("1 1")
+          button5.text = Board.getData(1, 1)
+        }
+        if (b == button6) {
+          Board.add("1 2")
+          button6.text = Board.getData(1, 2)
+        }
+        if (b == button7) {
+          Board.add("2 0")
+          button7.text = Board.getData(2, 0)
+        }
+        if (b == button8) {
+          Board.add("2 1")
+          button8.text = Board.getData(2, 1)
+        }
+        if (b == button9) {
+          Board.add("2 2")
+          button9.text = Board.getData(2, 2)
+        }
+        label.text = if (Board.isWon()) "Koniec" else Board.getDescription()
       }
     }
   }

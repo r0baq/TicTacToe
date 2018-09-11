@@ -2,7 +2,9 @@ object Board {
 
   private val data = Array.ofDim[Player.Value](3, 3)
   private var currentPlayer = Player.O
-  private var description = "Gracz '" + currentPlayer + "' wybiera pole"
+  private var description = ""
+
+  updateDescription
 
   def printBoard() = {
     printRow(data(0))
@@ -26,7 +28,11 @@ object Board {
     changePlayer()
   }
 
-  private def changePlayer() = if (currentPlayer == Player.O) currentPlayer = Player.X else currentPlayer = Player.O
+  private def changePlayer() = {
+    if (currentPlayer == Player.O) currentPlayer = Player.X else currentPlayer = Player.O
+    updateDescription
+  }
+  private def updateDescription = description = "Gracz '" + currentPlayer + "' wybiera pole"
 
   private def printRow(row : Array[Player.Value]) = println(printCell(row(0)) + "|" + printCell(row(1)) + "|" + printCell(row(2)))
 
